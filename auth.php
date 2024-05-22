@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if(password_verify($password, $hashed_password)){
                 $_SESSION['user'] = $login;
                 $_SESSION['user_id'] = $row['id'];
+                $_SESSION['is_admin'] = $row['isAdmin'];
                 header('Location: profile.php');
                 exit;
             } else {

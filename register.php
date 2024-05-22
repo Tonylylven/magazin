@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // Вставляем пользователя в таблицу users
-            $sql_users = "INSERT INTO users (login, password) 
-                VALUES ('$login', '$hashed_password')";
+            $sql_users = "INSERT INTO users (login, password, isAdmin) 
+                VALUES ('$login', '$hashed_password', 0)";
             if ($conn->query($sql_users) === TRUE) {
                 $user_id = $conn->insert_id;
 

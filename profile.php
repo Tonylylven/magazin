@@ -3,6 +3,10 @@ session_start();
 
 include('php/conn.php');
 
+if(isset($_SESSION['is_admin']) == 1) {
+    header('Location: admin.php');
+}
+
 if (isset($_SESSION['user'])) {
     // Если пользователь залогинен, то выводим его профиль
 
@@ -12,6 +16,7 @@ if (isset($_SESSION['user'])) {
     // Делаем запрос к базе данных для получения заказов пользователя
     $sql = "SELECT * FROM orders WHERE user_id ='$user_login'";
     $result = $conn->query($sql);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
