@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     VALUES ('$user_id', '$fio', '$tel', '$email')";
                 if ($conn->query($sql_lichn_dann) === TRUE) {
                     $_SESSION['user'] = $login;
+                    $_SESSION['user_id'] = $user_id;
                     $_SESSION['fio'] = $fio;
                     $_SESSION['tel'] = $tel;
                     $_SESSION['email'] = $email;
