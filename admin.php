@@ -24,6 +24,20 @@ if (isset($_SESSION['user']) && $_SESSION['is_admin'] == 1) {
             JOIN status s ON o.status_id = s.id
             ORDER BY o.id DESC";
     $result = $conn->query($sql);
+
+} else {
+    // Если пользователь не авторизован или не является администратором
+    echo $_SESSION['is_admin'];
+    exit;
+}
+
+if (isset($_GET['logout'])){
+    session_unset();
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +71,8 @@ if (isset($_SESSION['user']) && $_SESSION['is_admin'] == 1) {
                             <input type="hidden" name="order_id" value="<?php echo $row['id']; ?>">
                             <select name="new_status">
                                 <option value="1">Новая</option>
-                                <option value="2">В работе</option>
-                                <option value="3">Выполнено</option>
-                                <option value="4">Отменено</option>
+                                <option value="2">Подтверждено</option>
+                                <option value="3">Отменено</option>
                             </select>
                             <input type="submit" name="update_status" value="Обновить">
                         </form>
@@ -71,18 +84,3 @@ if (isset($_SESSION['user']) && $_SESSION['is_admin'] == 1) {
     <a href="?logout=1">Выйти</a>
 </body>
 </html>
-
-<?php
-} else {
-    // Если пользователь не авторизован или не является администратором
-    header('Location: index.php');
-    exit;
-}
-if (isset($_GET['logout'])){
-    session_unset();
-    session_destroy();
-    header('Location: index.php');
-    exit;
-}
-$conn->close();
-?>
