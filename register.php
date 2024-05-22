@@ -68,7 +68,7 @@ $conn->close();
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <h2>Регистрация</h2>
         <input type="text" name="fio" placeholder="ФИО" required>
-        <input type="tel" name="tel" placeholder="Телефон" required>
+        <input type="tel" name="tel" id="phone" placeholder="Телефон" required>
         <input type="text" name="login" placeholder="Логин" required>
         <input type="email" name="email" placeholder="Почта" required>
         <input type="password" name="password" placeholder="Пароль" required>

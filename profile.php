@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
     $user_login = $_SESSION['user_id'];
 
     // Делаем запрос к базе данных для получения заказов пользователя
-    $sql = "SELECT * FROM orders WHERE user_id = '$user_login'";
+    $sql = "SELECT * FROM orders WHERE user_id ='$user_login'";
     $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ if (isset($_SESSION['user'])) {
                     }
                     echo "</table>";
                 } else {
-                    echo "<p>У вас пока нет заказов.</p>";
+                    echo "<p>У вас пока нет заявлений.</p>";
                 }
                 ?>
                 <a href="./new_order.php">Оставить новое заявление</a>

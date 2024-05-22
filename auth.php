@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //Проверка пароля
             if(password_verify($password, $hashed_password)){
                 $_SESSION['user'] = $login;
+                $_SESSION['user_id'] = $row['id'];
                 header('Location: profile.php');
                 exit;
             } else {
