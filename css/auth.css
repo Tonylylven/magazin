@@ -1,0 +1,40 @@
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.auth form .button {
+    width: 200px;
+    height: 40px;
+    border: none;
+    background-color: black;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.auth .input_form {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black ;
+    padding-left: 10px;
+}
+
+.auth form a {
+    text-decoration: none;
+    color: black;
+}

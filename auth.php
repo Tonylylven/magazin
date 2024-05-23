@@ -43,16 +43,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/auth.css">
     <title>Авторизация</title>
 </head>
 <body>
-    <h1>Авторизация</h1>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <h2>Авторизация</h2>
-        <input type="text" name="login" placeholder="Логин" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <input type="submit" name="auth" value="Войти">
-        <a href="./register.php">Нет аккаунта? Зарегистрироваться</a>
-    </form>
+    <section class="auth">
+        <div class="container">
+            <h1>Авторизация</h1>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <input class="input_form" type="text" name="login" placeholder="Логин" required>
+                <input class="input_form" type="password" name="password" placeholder="Пароль" required>
+                <input class="button" type="submit" name="auth" value="Войти">
+                <a href="./register.php">Нет аккаунта? Зарегистрироваться</a>
+            </form>
+        </div>
+    </section>
 </body>
 </html>

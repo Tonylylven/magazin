@@ -22,6 +22,7 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/profile.css">
     <title>Профиль</title>
 </head>
 <body>
@@ -36,7 +37,7 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
                 <?php
                 // Проверяем, есть ли заказы
                 if ($result->num_rows > 0) {
-                    echo "<h2>Ваши заказы:</h2>";
+                    echo "<h2>Ваши заявления:</h2>";
                     echo "<table>";
                     echo "<tr><th>ID</th><th>Номер авто</th><th>Статус</th><th>Описание</th></tr>";
                     while($row = $result->fetch_assoc()) {
@@ -59,7 +60,9 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
                     echo "<p>У вас пока нет заявлений.</p>";
                 }
                 ?>
-                <a href="./new_order.php">Оставить новое заявление</a>
+                <div class="link-container">
+                    <a class="link-order" href="./new_order.php">Оставить новое заявление</a>
+                </div>
             </div>
         </div>
     </section>
